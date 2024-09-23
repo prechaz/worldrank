@@ -1,0 +1,33 @@
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    gap: 80px;
+}
+
+.container{
+    width: 95%;
+    height: 500px;
+    margin: auto;
+    background-color: #1B1D1F;
+    border: 1px solid #6C727F;
+    border-radius: 20px;
+    padding: 20px;
+}
+.logo{
+    margin: auto;
+}
+.mainContent{
+    display: flex;
+    margin-top: 20px;
+}
+.asideFilter{
+    background-color: blue;
+    flex: 1;
+}
+.countryList{
+    background-color: aqua;
+    flex: 3;
+}

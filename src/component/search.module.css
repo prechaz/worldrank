@@ -1,0 +1,23 @@
+.searchBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchBox{
+    display: flex;
+    align-items: center;
+    background-color: #282B30;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 10px;
+}
+.searchBox input{
+    width: 300px;
+    background-color: transparent;
+    border: none;
+}
+::placeholder{
+    color: #6C727F;
+    font-weight: 500;
+    font-size: 15px;
+}
