@@ -1,0 +1,34 @@
+/* Container to allow horizontal scrolling */
+.tableContainer {
+  overflow-x: auto;
+}
+/* Styling for the table */
+.countryTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+/* Table headers */
+.countryTable th {
+  padding: 10px;
+  border-bottom: 2px solid #282B30;
+  color: #6C727F;
+  font-size: 12px;
+}
+/* Table rows */
+.countryTable td {
+  padding: 10px;
+  color: #D2D5DA;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Last row border */
+.countryTable tr:last-child td {
+  border-bottom: none;
+}
+
+/* Image sizing for the flags */
+.countryTable img {
+  width: 50px;
+}

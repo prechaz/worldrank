@@ -9,25 +9,42 @@ section{
 
 .container{
     width: 95%;
-    height: 500px;
-    margin: auto;
+    margin: 20px auto;
     background-color: #1B1D1F;
     border: 1px solid #6C727F;
     border-radius: 20px;
-    padding: 20px;
+    padding: 30px;
 }
 .logo{
     margin: auto;
 }
 .mainContent{
     display: flex;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .asideFilter{
-    background-color: blue;
     flex: 1;
 }
 .countryList{
-    background-color: aqua;
     flex: 3;
+}
+@media screen and (max-width: 900px){
+    section{
+        margin-top: 50px;
+    }
+    .container{
+        width: 100%;
+        padding: 20px;
+    }
+    .mainContent{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .asideFilter{
+        margin-top: 20px;
+    }
+    .countryList{
+        margin-top: 20px;
+    }
+    
 }

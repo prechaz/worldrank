@@ -3,6 +3,10 @@
     justify-content: space-between;
     align-items: center;
 }
+h3{
+    color: #6C727F;
+    font-size: 16px;
+}
 .searchBox{
     display: flex;
     align-items: center;
@@ -15,6 +19,8 @@
     width: 300px;
     background-color: transparent;
     border: none;
+    outline: none;
+    color: #6C727F;
 }
 ::placeholder{
     color: #6C727F;
