@@ -81,11 +81,12 @@ h3{
 .borders{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
     color: #D2D5DA;
 }
 .borderInfo img{
-    max-width: 80px;
+    width: 80px;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -93,4 +94,21 @@ h3{
     line-height: 20px;
     font-size: 10px;
     margin-bottom: 60px;
+    cursor: pointer;
+}
+@media screen and (max-width: 700px){
+    .areaContainer{
+        flex-direction: column;
+        align-items: center;
+    }
+    .population{
+        padding: 5px;
+    }
+    .borders{
+        flex-direction: column;
+    }
+    .borderInfo img{
+        width: 150px;
+    }
+
 }

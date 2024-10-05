@@ -1,13 +1,17 @@
 import React from "react";
 import style from "./country.module.css";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader.jsx";
 
-function Country({ countryList }) {
+function Country({ countryList, loading}) {
   const navigate = useNavigate()
   const handleClick = (country) => {
     console.log(country);
     navigate(`/country/${country.name.common}`)
   };
+  const sortedCountryList = countryList.sort((a, b) => {
+    return a.name.common.localeCompare(b.name.common);
+  });
   return (
     <>
       <div className={style.tableContainer}>
@@ -21,7 +25,12 @@ function Country({ countryList }) {
               <th>Region</th>
             </tr>
           </thead>
-          {countryList.map((country,index) => (
+          {
+            loading ? (
+              <Loader/>
+            ) : (
+              
+          sortedCountryList.map((country,index) => (
             <tbody key={index}>
               <tr onClick={()=>handleClick(country)}>
                 <td>
@@ -36,7 +45,10 @@ function Country({ countryList }) {
                 <td>{country.region}</td>
               </tr>
             </tbody>
-          ))}
+          ))
+            )
+          }
+
         </table>
       </div>
     </>

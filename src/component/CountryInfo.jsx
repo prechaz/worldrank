@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./CountryInfo.module.css";
+import { useNavigate } from "react-router-dom";
 
-function CountryInfo({ country}) {
+function CountryInfo({ country, loading}) {
   const [countries, setCountries] = useState([]);
   const [data, setData] = useState([]);
   const border = country.borders;
@@ -26,7 +27,12 @@ function CountryInfo({ country}) {
       }
     };
     fetchCountries();
-  }, []);
+  }, [countries]);
+  const navigate = useNavigate()
+  const handleClick = (country) => {
+    console.log(country);
+    navigate(`/country/${country.name.common}`)
+  };
  
   
 
@@ -89,7 +95,7 @@ function CountryInfo({ country}) {
                 {countries.map((country)=>(
                     <div className={style.borderInfo} key={country.cca3}>
                         <img src={country.flags.svg} alt="" />
-                        <p>{country.name.common}</p>
+                        <p onClick={()=>handleClick(country)}>{country.name.common}</p>
                     </div>
                 ))}
             </div>

@@ -27,3 +27,17 @@ h3{
     font-weight: 500;
     font-size: 15px;
 }
+@media screen and (max-width: 500px){
+    .searchBox{
+        padding: 5px;
+    }
+    .searchBox input{
+        width: 200px;
+    }
+    ::placeholder{
+        font-size: 11px;
+    }
+    h3{
+        font-size: 10px;
+    }
+}

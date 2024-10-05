@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/Logo.svg"; // Importing logo for display
 import style from "./home.module.css"; // Importing CSS styles
-import Search from "../../component/Search"; // Importing the Search component for filtering
-import Aside from "../../component/Aside"; // Importing the Aside component for filters
-import Country from "../../component/Country"; // Importing the Country component to display the list of countries
+import Search from "../../component/Search.jsx"; // Importing the Search component for filtering
+import Aside from "../../component/Aside.jsx"; // Importing the Aside component for filters
+import Country from "../../component/Country.jsx"; // Importing the Country component to display the list of countries
 
 function Home({countryList,setCountryList}) {
   // State variables to manage country data and filters
@@ -14,6 +14,7 @@ function Home({countryList,setCountryList}) {
   const [region, setRegion] = useState(""); // Selected region for filtering countries
   const [isUNMember, setIsUNMember] = useState(false); // Checkbox state to filter UN member countries
   const [isIndependent, setIsIndependent] = useState(false); // Checkbox state to filter independent countries
+  const [loading, setLoading] = useState(true) // State to manage loading
 
   // Fetch country data once when the component mounts
   useEffect(() => {
@@ -24,8 +25,11 @@ function Home({countryList,setCountryList}) {
         console.log(data); // Logging the fetched data for debugging// Here you can limit the data if needed
         setCountryList(data); // Setting the full list of countries in state
         setFilteredSearch(data); // Setting the filtered list initially to the full list
+        
       } catch (error) {
         console.error(error); // Logging any errors that occur during the fetch
+      }finally{
+        setLoading(false) // Set loading state to false when fetch is done  
       }
     }
     fetchCountry(); // Calling the function to fetch countries
@@ -34,7 +38,6 @@ function Home({countryList,setCountryList}) {
   // Filter country list based on search input and other selected filters
   useEffect(() => {
     let filteredData = countryList; // Start with the full country list
-
     // Filter by search term (name, region, or subregion)
     if (search !== "") {
       filteredData = filteredData.filter((country) => {
@@ -75,6 +78,7 @@ function Home({countryList,setCountryList}) {
     if (isIndependent) {
       filteredData = filteredData.filter((country) => country.independent); // Only include independent countries
     }
+    
 
     // Update the filtered country list
     setFilteredSearch(filteredData); // Update the state with the filtered list
@@ -101,7 +105,7 @@ function Home({countryList,setCountryList}) {
             />
           </div>
           <div className={style.countryList}>
-            <Country countryList={filteredSearch} /> {/* Display the filtered list of countries */}
+            <Country loading={loading} countryList={filteredSearch} /> {/* Display the filtered list of countries */}
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import react, { useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import MainLayout from './MainLayout/MainLayout'
-import Home from './page/home/Home'
-import CountryPage from './page/countrypage/CountryPage'
+import MainLayout from './MainLayout/MainLayout.jsx'
+import Home from './page/home/Home.jsx'
+import CountryPage from './page/countrypage/CountryPage.jsx'
 
 function App() {
   const [countryList, setCountryList] = useState([]); 
