@@ -22,6 +22,10 @@
   color: #D2D5DA;
   border-bottom: 1px solid #ddd;
 }
+.countryTable tr{
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
 
 /* Last row border */
 .countryTable tr:last-child td {

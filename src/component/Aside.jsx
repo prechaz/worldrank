@@ -50,7 +50,7 @@ function Aside({setPopulation, setRegion,setIsUNMember, setIsIndependent}) {
       <select onChange={handleChange} className={style.option} name="" id="">
         {
           population.map((option)=>(
-            <option id={option.id} value={option.population}>{option.population}</option>
+            <option key={option.id} value={option.population}>{option.population}</option>
           ))
         }
       </select>
@@ -58,7 +58,7 @@ function Aside({setPopulation, setRegion,setIsUNMember, setIsIndependent}) {
       <ul>
         {
           regions.map((region)=>(
-            <li  className={active === region.region ? style.active : ""} onClick={()=>{handleClick(region.region)}}>{region.region}</li>
+            <li key={region.id} className={active === region.region ? style.active : ""} onClick={()=>{handleClick(region.region)}}>{region.region}</li>
           ))
         }
       </ul>

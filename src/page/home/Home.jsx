@@ -5,9 +5,9 @@ import Search from "../../component/Search"; // Importing the Search component f
 import Aside from "../../component/Aside"; // Importing the Aside component for filters
 import Country from "../../component/Country"; // Importing the Country component to display the list of countries
 
-function Home() {
+function Home({countryList,setCountryList}) {
   // State variables to manage country data and filters
-  const [countryList, setCountryList] = useState([]); // Full list of countries fetched from the API
+ // Full list of countries fetched from the API
   const [filteredSearch, setFilteredSearch] = useState([]); // List of countries after applying filters
   const [search, setSearch] = useState(""); // Search term for filtering countries by name, region, or subregion
   const [population, setPopulation] = useState(""); // Population threshold for filtering countries
@@ -21,10 +21,9 @@ function Home() {
       try {
         const res = await fetch("https://restcountries.com/v3.1/all"); // Fetching country data from API
         const data = await res.json(); // Parsing the response to JSON
-        console.log(data); // Logging the fetched data for debugging
-        const limitedData = data; // Here you can limit the data if needed
-        setCountryList(limitedData); // Setting the full list of countries in state
-        setFilteredSearch(limitedData); // Setting the filtered list initially to the full list
+        console.log(data); // Logging the fetched data for debugging// Here you can limit the data if needed
+        setCountryList(data); // Setting the full list of countries in state
+        setFilteredSearch(data); // Setting the filtered list initially to the full list
       } catch (error) {
         console.error(error); // Logging any errors that occur during the fetch
       }

@@ -1,0 +1,21 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  gap: 60px;
+}
+p sup{
+  font-size: 8px;
+}
+
+.container {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #1b1d1f;
+  border: 1px solid #282b30;
+  box-shadow: 2px 1px 50px rgb(20, 19, 19);
+  border-radius: 20px;
+  position: relative;
+}
